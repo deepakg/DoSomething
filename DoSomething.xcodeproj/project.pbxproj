@@ -18,6 +18,7 @@
 		323C86DC18775AD200628749 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323C86BB18775AD100628749 /* Cocoa.framework */; };
 		323C86E418775AD200628749 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 323C86E218775AD200628749 /* InfoPlist.strings */; };
 		323C86E618775AD200628749 /* DoSomethingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 323C86E518775AD200628749 /* DoSomethingTests.m */; };
+		323C86F01877603C00628749 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323C86EF1877603C00628749 /* EventKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		323C86E118775AD200628749 /* DoSomethingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoSomethingTests-Info.plist"; sourceTree = "<group>"; };
 		323C86E318775AD200628749 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		323C86E518775AD200628749 /* DoSomethingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoSomethingTests.m; sourceTree = "<group>"; };
+		323C86EF1877603C00628749 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				323C86F01877603C00628749 /* EventKit.framework in Frameworks */,
 				323C86BC18775AD100628749 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +98,7 @@
 		323C86BA18775AD100628749 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				323C86EF1877603C00628749 /* EventKit.framework */,
 				323C86BB18775AD100628749 /* Cocoa.framework */,
 				323C86DA18775AD200628749 /* XCTest.framework */,
 				323C86BD18775AD100628749 /* Other Frameworks */,
