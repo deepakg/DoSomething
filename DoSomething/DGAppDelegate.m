@@ -218,6 +218,7 @@
     [self.window makeKeyAndOrderFront:self];
     [self.txtReminder setStringValue:@""];
     [self.window setIsVisible:YES];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 -(void) edit: (NSMenuItem *) sender {
