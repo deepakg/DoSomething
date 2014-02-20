@@ -30,49 +30,16 @@
     EKEventStore *eventStore = [[EKEventStore alloc] init];
     self.reminderCount = 0;
     DGAppDelegate * __weak weakself = self;
-    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                    // Event creation code here.
-                if(granted) {
-                    weakself.theStore = eventStore;
-                    NSLog(@"Got permission");
-                    [weakself buildMenu];
-                    [weakself subscribe];
-
-                    
-//                    NSMutableArray *searchFor = [[NSMutableArray alloc] init];
-//                    EKCalendar *defaultList = [weakself.theStore defaultCalendarForNewReminders];
-//                    [searchFor addObject:defaultList];
-//                    
-//                    NSPredicate *predicate = [weakself.theStore predicateForIncompleteRemindersWithDueDateStarting:nil ending:nil calendars:searchFor];
-//                    //NSPredicate *predicate = [store predicateForRemindersInCalendars:search];
-//                    [weakself.theStore fetchRemindersMatchingPredicate:predicate completion:^(NSArray *reminders) {
-//                        int count = 0;
-//                        NSMenu *reminderMenu = [[NSMenu alloc] init];
-//                        for(EKReminder *reminder in reminders ) {
-//                            
-//                            //NSLog(@"%s\n", [[NSString stringWithFormat:@"%@", reminder.title] UTF8String]);
-//                            NSMenuItem *item = [[NSMenuItem alloc] init];
-//                            item.title = reminder.title;
-//                            item.representedObject = reminder.calendarItemIdentifier;
-//                            item.action = @selector(handleReminder:);
-//                            item.keyEquivalent = @"";
-//                            
-//                            [reminderMenu addItem:item];
-//                            count++;
-//                        }
-//                        NSStatusBar *bar = [NSStatusBar systemStatusBar];
-//                        weakself.theItem = [bar statusItemWithLength:NSVariableStatusItemLength];
-//                        [weakself.theItem setTitle: [NSString stringWithFormat:@"%d", count]];
-//                        [weakself.theItem setHighlightMode:YES];
-//                        [weakself.theItem setMenu:reminderMenu];
-//                    }];
-               }
-
-            });
+    [eventStore requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(granted) {
+                weakself.theStore = eventStore;
+                //NSLog(@"Got permission");
+                [weakself buildMenu];
+                [weakself subscribe];
+            }
+        });
     }];
-    
-    
 }
 
 - (void) storeChanged: (NSNotificationCenter *)notificationCenter {
@@ -87,6 +54,7 @@
 
     //NSLog(@"buildMenu called");
     EKCalendar *defaultList = [self.theStore defaultCalendarForNewReminders];
+    NSMutableArray *searchFor = [[NSMutableArray alloc] init];
     [searchFor addObject:defaultList];
     
     NSPredicate *predicate = [self.theStore predicateForIncompleteRemindersWithDueDateStarting:nil ending:nil calendars:searchFor];
@@ -193,15 +161,24 @@
     NSString *calendarIdentifier = [sender representedObject];
     EKReminder *reminder = (EKReminder *)[self.theStore calendarItemWithIdentifier:calendarIdentifier];
     reminder.completed = YES;
-    [self.theStore saveReminder:reminder commit:YES error:nil];
     //NSLog(@"%@", reminder);
     
     [self.theItem.menu removeItem:sender.parentItem];
-
+    [self.theItem.menu update];
+    
+    //Unsubscribe from the EKEventStoreChanged notification
+    //We rebuild the menu when the reminder store changes
+    //but sometimes the change notification fires but the store
+    //is not yet updated so our completed reminder
+    //still shows up as uncompleted and comes back in the menu again
+    [self unsubscribe];
+    [self.theStore saveReminder:reminder commit:YES error:nil];
+    
     self.reminderCount--;
     [self.theItem setTitle:[self getTitle:self.reminderCount]];
     [self.theItem setToolTip:[self getTooltip:self.reminderCount]];
     
+    [self subscribe];
     //[self.timer fire];
 }
 
@@ -211,6 +188,10 @@
                                                  name:EKEventStoreChangedNotification
                                                object:self.theStore];
 
+}
+
+-(void) unsubscribe {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void) add: (id)sender {
