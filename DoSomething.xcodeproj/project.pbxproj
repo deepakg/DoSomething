@@ -32,7 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		323C86B818775AD100628749 /* DoSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		323C86B818775AD100628749 /* Reminder Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reminder Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		323C86BB18775AD100628749 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		323C86BE18775AD100628749 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		323C86BF18775AD100628749 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -89,7 +89,7 @@
 		323C86B918775AD100628749 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				323C86B818775AD100628749 /* DoSomething.app */,
+				323C86B818775AD100628749 /* Reminder Buddy.app */,
 				323C86D918775AD200628749 /* DoSomethingTests.xctest */,
 			);
 			name = Products;
@@ -161,9 +161,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		323C86B718775AD100628749 /* DoSomething */ = {
+		323C86B718775AD100628749 /* Reminder Buddy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 323C86E918775AD200628749 /* Build configuration list for PBXNativeTarget "DoSomething" */;
+			buildConfigurationList = 323C86E918775AD200628749 /* Build configuration list for PBXNativeTarget "Reminder Buddy" */;
 			buildPhases = (
 				323C86B418775AD100628749 /* Sources */,
 				323C86B518775AD100628749 /* Frameworks */,
@@ -173,9 +173,9 @@
 			);
 			dependencies = (
 			);
-			name = DoSomething;
+			name = "Reminder Buddy";
 			productName = DoSomething;
-			productReference = 323C86B818775AD100628749 /* DoSomething.app */;
+			productReference = 323C86B818775AD100628749 /* Reminder Buddy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		323C86D818775AD200628749 /* DoSomethingTests */ = {
@@ -224,7 +224,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				323C86B718775AD100628749 /* DoSomething */,
+				323C86B718775AD100628749 /* Reminder Buddy */,
 				323C86D818775AD200628749 /* DoSomethingTests */,
 			);
 		};
@@ -275,7 +275,7 @@
 /* Begin PBXTargetDependency section */
 		323C86DE18775AD200628749 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 323C86B718775AD100628749 /* DoSomething */;
+			target = 323C86B718775AD100628749 /* Reminder Buddy */;
 			targetProxy = 323C86DD18775AD200628749 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -349,6 +349,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -380,6 +381,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -462,13 +464,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		323C86E918775AD200628749 /* Build configuration list for PBXNativeTarget "DoSomething" */ = {
+		323C86E918775AD200628749 /* Build configuration list for PBXNativeTarget "Reminder Buddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				323C86EA18775AD200628749 /* Debug */,
 				323C86EB18775AD200628749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		323C86EC18775AD200628749 /* Build configuration list for PBXNativeTarget "DoSomethingTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +480,7 @@
 				323C86EE18775AD200628749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
