@@ -18,7 +18,7 @@
         //😫 = 11-15 tasks
         //😵 = > 15 tasks
         icons = @[@"😀",@"😠",@"😢",@"😫",@"😵"];
-        NSLog(@"%@", icons);
+        //NSLog(@"%@", icons);
     }
     
     return self;
@@ -85,8 +85,7 @@
 
 - (void) buildMenu {
 
-    NSLog(@"buildMenu called");
-    NSMutableArray *searchFor = [[NSMutableArray alloc] init];
+    //NSLog(@"buildMenu called");
     EKCalendar *defaultList = [self.theStore defaultCalendarForNewReminders];
     [searchFor addObject:defaultList];
     
@@ -185,7 +184,7 @@
 - (void) handleReminder:(id)sender {
     NSString *calendarIdentifier = [sender representedObject];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"x-apple-reminder://%@",calendarIdentifier]];
-    NSLog(@"%@", url);
+    //NSLog(@"%@", url);
     //BOOL ok = [[NSWorkspace sharedWorkspace] openURL:url];
     [[NSWorkspace sharedWorkspace] openURL:url];
 }
@@ -239,7 +238,7 @@
 }
 
 -(void) refreshMe: (id) sender {
-    NSLog(@"%@", @"called");
+    //NSLog(@"%@", @"called");
 }
 
 - (IBAction)cancel:(id)sender {
@@ -247,7 +246,7 @@
 }
 
 - (IBAction)save:(id)sender {
-    NSLog(@"%@", @"Hello World");
+    //NSLog(@"%@", @"Hello World");
     EKReminder *reminder;
     if([self.currentReminder isNotEqualTo:@""]) {
         reminder = (EKReminder *)[self.theStore calendarItemWithIdentifier:self.currentReminder];
