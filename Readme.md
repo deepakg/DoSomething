@@ -18,3 +18,4 @@ When I started learning Mac development late last year, I wanted to build a smal
 1. pick a custom threshold for the icons
 2. choose between showing the icon/showing a count of tasks/showing both.
 As this is my first real-world Mac app and I am still pretty new to Objective C, I am quite sure there are numerous other things I could've done better. Take it for a spin, and hopefully you'll find it useful.
+A pre-built binary for OS X 10.9 is included in a zip file under the bin folder.
